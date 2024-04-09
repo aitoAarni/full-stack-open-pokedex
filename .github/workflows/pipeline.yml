@@ -1,3 +1,9 @@
+name: Hello World!
+
+on:
+  push:
+    branches:
+      - main
 jobs:
   advanced_deployment_pipeline:
     runs-on: ubuntu-20.04
