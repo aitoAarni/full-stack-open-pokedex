@@ -1,3 +1,11 @@
 dist/
 node_modules/
 .github/workflows/webpack.yml
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
