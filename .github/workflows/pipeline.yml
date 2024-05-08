@@ -46,7 +46,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: e2e
-    if: ${{ github.event_name == 'push' && success() }}
+    if: ${{ github.event_name == 'push' && success() && contains(join(toJson(github.event.commits.*.message)), '#skip') == false}} 
     steps:
       - uses: actions/checkout@v4
       - name: Trigger deployment
