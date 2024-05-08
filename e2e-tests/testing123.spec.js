@@ -12,11 +12,8 @@ describe('Pokedex', () => {
   })
   test('clicking a pokemon redirects to its page', async ({ page }) => {
     await page.goto('http://localhost:8080/')
-    // Find the link to click
-    // Find the link to click
     const pokemonLink = await page.$('a[href="/pokemon/ivysaur"]')
     if (pokemonLink) {
-      // Click the link
       await pokemonLink.click()
     } else {
       throw new Error('Pokemon link not found')
