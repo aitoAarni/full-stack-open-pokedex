@@ -19,6 +19,6 @@ describe('Pokedex', () => {
       throw new Error('Pokemon link not found')
     }
 
-    expect(page.getByText('chlorophyll'))
+    expect(page.getByText('chlorophyllis'))
   })
 })
