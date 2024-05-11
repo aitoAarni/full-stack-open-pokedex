@@ -47,16 +47,18 @@ jobs:
     runs-on: ubuntu-latest
     needs: e2e
     if: ${{ github.event_name == 'push' && success() && contains(join(toJson(github.event.commits.*.message)), '#skip') == false}} 
-    uses: rjstone/discord-webhook-notify@v1
-    with:
-      severity: info,
-      texxt: A new version of Pokedex deployed
-      description: to https://full-stack-open-pokedex-kz1s.onrender.com by ${{ github.actor }}
-      webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+    
     steps:
       - uses: actions/checkout@v4
       - name: Trigger deployment
         run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
+      - name: notify Discord
+        uses: rjstone/discord-webhook-notify@v1
+        with:
+          severity: info,
+          texxt: A new version of Pokedex deployed
+          description: to https://full-stack-open-pokedex-kz1s.onrender.com by ${{ github.actor }}
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
           
   create_semantic_version:
