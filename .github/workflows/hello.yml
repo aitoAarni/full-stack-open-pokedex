@@ -2,7 +2,8 @@ name: Hello World!
 
 on:
   push:
-
+    branches:
+      - main
 jobs:
   hello_world_job:
     runs-on: ubuntu-20.04
@@ -26,6 +27,11 @@ jobs:
         env:
           HAS_#SKIP_IN_IT: ${{contains(join(toJson(github.event.commits.*.message)), '#skip')}}
         run: echo "$HAS_#SKIP_IN_IT"
+
+      - name: give name of committer
+        run: |
+          echo "${{ github.actor }}"
+
       - name: Say hello
         run: |
           echo "Hello World!"
