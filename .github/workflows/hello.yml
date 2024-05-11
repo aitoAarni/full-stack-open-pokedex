@@ -3,7 +3,8 @@ name: Hello World!
 on:
   push:
     branches:
-      - [ "main", "testingB" ]
+      - main
+      - testingB
 jobs:
   hello_world_job:
     runs-on: ubuntu-20.04
