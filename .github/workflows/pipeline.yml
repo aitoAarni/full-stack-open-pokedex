@@ -56,7 +56,7 @@ jobs:
         uses: rjstone/discord-webhook-notify@v1
         with:
           severity: info,
-          texxt: A new version of Pokedex deployed
+          text: A new version of Pokedex deployed
           description: to https://full-stack-open-pokedex-kz1s.onrender.com by ${{ github.actor }}
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
