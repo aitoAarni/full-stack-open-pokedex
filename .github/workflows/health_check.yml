@@ -1,9 +1,8 @@
-
 name: The health check
 
 on:
   schedule:
-    - cron: "*/5 * * * *"   # <=== Change this value
+    - cron: '0 12 1,14 * *' # <=== Change this value
 
 jobs:
   health_check_pipeline:
@@ -13,5 +12,5 @@ jobs:
         uses: jtalk/url-health-check-action@v4
         with:
           url: https://full-stack-open-pokedex-kz1s.onrender.com
-          max-attempts: 3 
-          retry-delay: 59s 
+          max-attempts: 3
+          retry-delay: 59s
